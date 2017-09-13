@@ -20,6 +20,8 @@ public class Duel {
 		duel.dukeItOut();
 	}
 	
+	// need to make CharacterA
+	
 	public Duel() {
 		d1 = new CharacterA();
 		d2 = new CharacterB();

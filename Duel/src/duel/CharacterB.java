@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class CharacterB implements Dueler 
 {
-	private static final String[] TAUNTS = {"Im amazing", " get rekted"};
+	private static final String[] TAUNTS = {"This is gonna be easy", "What a no namer"};
 	private int startingHP;
 	private int hp;
 	
@@ -12,6 +12,7 @@ public class CharacterB implements Dueler
 	{
 		Random rand = new Random();
 		String taunt = TAUNTS[rand.nextInt(TAUNTS.length)];
+		System.out.println(taunt);
 	}
 	public String getName()
 	{

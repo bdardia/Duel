@@ -2,7 +2,7 @@ package duel;
 
 import java.util.Random;
 
-public class CharacterA {
+public class CharacterA implements Dueler{
 	private static final String[] TAUNTS = {"Im amazing", " get rekted"};
 	private String name;
 	

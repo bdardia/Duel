@@ -5,6 +5,8 @@ import java.util.Random;
 public class CharacterB implements Dueler 
 {
 	private static final String[] TAUNTS = {"Im amazing", " get rekted"};
+	private static int startingHP;
+	private static int hp;
 	
 	public void taunt() 
 	{
@@ -13,7 +15,16 @@ public class CharacterB implements Dueler
 	}
 	public String getName()
 	{
-		return null;
+		return "Character B";
+	}
+	public void setStartingHP(int hp)
+	{
+		this.startingHP = hp;
+		this.hp = startingHP;
+	}
+	public int getHP()
+	{
+		return this.hp;
 	}
 	public CharacterB()
 	{

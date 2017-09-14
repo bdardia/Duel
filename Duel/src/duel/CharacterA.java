@@ -6,19 +6,19 @@ public class CharacterA {
 	private static final String[] TAUNTS = {"Im amazing", " get rekted"};
 	private String name;
 	
-	public CharacterA() {
-		
+	public CharacterA(String name) {
+		this.name = name;
 	}
 	
 	public void taunt() {
 		Random rand = new Random();
 		String taunt = TAUNTS[rand.nextInt(TAUNTS.length)];
+		System.out.println(taunt);
 
 	}
 
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.name;
 	}
 
 }

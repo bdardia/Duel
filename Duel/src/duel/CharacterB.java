@@ -32,10 +32,7 @@ public class CharacterB implements Dueler
 		{
 			return true;
 		}
-		else
-		{
-			return false;
-		}
+		return false;
 	}
 	public CharacterB()
 	{

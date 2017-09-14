@@ -3,11 +3,15 @@ package duel;
 import java.util.Random;
 
 public class CharacterA {
-	public static final String[] TAUNTS = {"Im amazing", " get rekted"};
+	private static final String[] TAUNTS = {"Im amazing", " get rekted"};
+	private String name;
 	
+	public CharacterA() {
+		
+	}
 	
 	public void taunt() {
-		Random rand;
+		Random rand = new Random();
 		String taunt = TAUNTS[rand.nextInt(TAUNTS.length)];
 
 	}

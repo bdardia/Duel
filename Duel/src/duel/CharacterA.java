@@ -1,9 +1,10 @@
-import duel.Dueler;
+package duel;
+
 import java.util.Random;
 
-public class Deuler_Bot implements Dueler {
-
+public class CharacterA {
 	public static final String[] TAUNTS = {"Im amazing", " get rekted"};
+	
 	
 	public void taunt() {
 		Random rand;

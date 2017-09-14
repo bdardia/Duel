@@ -4,10 +4,12 @@ import java.util.Random;
 
 public class CharacterA implements Dueler{
 	private static final String[] TAUNTS = {"Im amazing", " get rekted"};
-	private String name;
+	private final int startingHp;
 	
-	public CharacterA(String name) {
-		this.name = name;
+	
+	private String name = "Player_3";
+	
+	public CharacterA() {
 	}
 	
 	public void taunt() {
@@ -20,5 +22,11 @@ public class CharacterA implements Dueler{
 	public String getName() {
 		return this.name;
 	}
+	
+	void setStartingHP(int hp) {
+		this.hp = hp;
+	}
+	
+	
 
 }

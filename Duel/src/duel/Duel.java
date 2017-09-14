@@ -39,11 +39,11 @@ public class Duel {
 		d1.setStartingHP(dueler1HP);
 		d2.setStartingHP(dueler2HP);
 		
-		boolean d1SaysD2Fair = d1.determineIfOpponentIsFair(d2, 100);
-		boolean d2SaysD1Fair = d2.determineIfOpponentIsFair(d1, 100);
+		boolean d1SaysD2Fair = d1.determineIfOpponentIsFair(d2, dueler2HP);
+		boolean d2SaysD1Fair = d2.determineIfOpponentIsFair(d1, dueler1HP);
 		
 
-		
+		System.out.println(d1SaysD2Fair && d2SaysD1Fair);
 	}
 	
 	

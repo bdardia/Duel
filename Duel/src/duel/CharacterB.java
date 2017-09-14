@@ -5,8 +5,8 @@ import java.util.Random;
 public class CharacterB implements Dueler 
 {
 	private static final String[] TAUNTS = {"Im amazing", " get rekted"};
-	private static int startingHP;
-	private static int hp;
+	private int startingHP;
+	private int hp;
 	
 	public void taunt() 
 	{

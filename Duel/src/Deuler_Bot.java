@@ -1,3 +1,5 @@
+import duel.Dueler;
+
 public class Deuler_Bot implements Dueler {
 
 	public static final String[] TAUNTS = {"Im amazing", " get rekted"};

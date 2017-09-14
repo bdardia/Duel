@@ -16,7 +16,7 @@ public class CharacterB implements Dueler
 	}
 	public String getName()
 	{
-		return "Character B";
+		return "Player_12";
 	}
 	public void setStartingHP(int hp)
 	{

@@ -4,12 +4,32 @@ import java.util.Random;
 
 public class CharacterA implements Dueler{
 	private static final String[] TAUNTS = {"Im amazing", " get rekted"};
-	private final int startingHp;
+	private int hp = -1;
 	
 	
 	private String name = "Player_3";
 	
 	public CharacterA() {
+	}
+	
+	
+	public boolean determineIfOpponentIsFair(Dueler d, int target) {
+		return d.getHP() == target;
+	}
+	
+	public int getHP() {
+		return this.hp;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setStartingHP(int hp) {
+		if(this.hp == -1 & hp > 0) {
+			this.hp = hp;
+		}
+		
 	}
 	
 	public void taunt() {
@@ -19,14 +39,6 @@ public class CharacterA implements Dueler{
 
 	}
 
-	public String getName() {
-		return this.name;
-	}
-	
-	void setStartingHP(int hp) {
-		this.hp = hp;
-	}
-	
 	
 
 }

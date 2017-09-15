@@ -46,7 +46,7 @@ public class CharacterA implements Dueler{
 	public int getAction(Object caller) {
 		
 		if(caller instanceof Duel) {
-			int descision = this.rand.nextInt(1);
+			int descision = this.rand.nextInt(2);
 			if(descision == this.defending) {
 				return 2;
 			}

@@ -7,6 +7,7 @@ public class CharacterA implements Dueler{
 	private final int attacking = 1;
 	private final int defending = 0;
 	private int hp = -1;
+	private boolean loaded = false;
 	
 	private Random rand = new Random();
 	
@@ -50,7 +51,8 @@ public class CharacterA implements Dueler{
 				return 2;
 			}
 			else if(descision == this.attacking){
-				if (caller.d1Loaded) {
+				if (this.loaded) {
+					this.loaded = false;
 					return 1;
 				}
 				else {
@@ -63,6 +65,7 @@ public class CharacterA implements Dueler{
 		
 		
 	public void hit(Object caller) {
+		this.hp-= 10;
 		
 	}
 

@@ -35,6 +35,38 @@ public class CharacterB implements Dueler
 		}
 		return false;
 	}
+	public int getAction(Object caller)
+	{
+		double odds = Math.random();
+		boolean fairInstance = caller instanceof Duel;
+		boolean recentlyLoaded = false;
+		if (!fairInstance)
+		{
+			return 3;
+		}
+		if (odds < 0.333 && !recentlyLoaded)
+		{
+			recentlyLoaded = !recentlyLoaded;
+			return 0;
+		}
+		else if (odds < 0.666 && odds > 0.333 && recentlyLoaded)
+		{
+			return 1;
+		}
+		else
+		{
+			return 2;
+		}
+	}
+	public void hit(Object caller)
+	{
+		boolean fairInstance = caller instanceof Duel;
+		if (!fairInstance)
+		{
+			return;
+		}
+		this.hp -= 10;
+	}
 	public CharacterB()
 	{
 		

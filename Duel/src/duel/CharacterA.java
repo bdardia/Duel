@@ -3,8 +3,7 @@ package duel;
 import java.util.Random;
 
 public class CharacterA implements Dueler{
-	private static final String[] TAUNTS = {"Im amazing", " get rekted"};
-	private final int attacking = 1;
+	private static final String[] TAUNTS = {"Im amazing", " get rekted", "Im the alpha bot", "gg"};
 	private final int defending = 0;
 	private int hp = -1;
 	private boolean loaded = false;
@@ -14,11 +13,14 @@ public class CharacterA implements Dueler{
 	
 	private String name = "Player_3";
 	
+	private Dueler opponent;
+	
 	public CharacterA() {
 	}
 	
 	
 	public boolean determineIfOpponentIsFair(Dueler d, int target) {
+		this.opponent = d;
 		return d.getHP() == target;
 	}
 	
@@ -47,7 +49,7 @@ public class CharacterA implements Dueler{
 		
 		if(caller instanceof Duel) {
 			int descision = this.rand.nextInt(2);
-			if(descision == this.defending) {
+			if(descision == this.defending || this.hp > this.opponent.getHP()) {
 				return 2;
 			}
 			else { //attack if not defending

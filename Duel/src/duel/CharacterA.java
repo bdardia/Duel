@@ -50,12 +50,13 @@ public class CharacterA implements Dueler{
 			if(descision == this.defending) {
 				return 2;
 			}
-			else if(descision == this.attacking){
+			else { //attack if not defending
 				if (this.loaded) {
 					this.loaded = false;
 					return 1;
 				}
 				else {
+					this.loaded = true;
 					return 0;
 				}
 			}

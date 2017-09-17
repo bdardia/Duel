@@ -15,6 +15,8 @@ public class CharacterA implements Dueler{
 	
 	private Dueler opponent;
 	
+	private int previousTauntIndex = -1;
+	
 	public CharacterA() {
 	}
 	
@@ -40,7 +42,17 @@ public class CharacterA implements Dueler{
 	}
 	
 	public void taunt() {
-		String taunt = TAUNTS[this.rand.nextInt(TAUNTS.length)];
+		int tauntIndex = this.rand.nextInt(TAUNTS.length);
+		if(tauntIndex == this.previousTauntIndex) {
+			if(tauntIndex == 0) {
+				tauntIndex = TAUNTS.length;
+			}
+			else {
+				tauntIndex-=1;
+			}
+		}
+		String taunt = TAUNTS[tauntIndex];
+		this.previousTauntIndex = tauntIndex;
 		System.out.println(taunt);
 
 	}

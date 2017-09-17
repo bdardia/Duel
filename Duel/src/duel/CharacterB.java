@@ -44,12 +44,12 @@ public class CharacterB implements Dueler
 		{
 			return 3;
 		}
-		if (odds < 0.333 && !recentlyLoaded)
+		if (odds < 0.3 && !recentlyLoaded)
 		{
 			recentlyLoaded = !recentlyLoaded;
 			return 0;
 		}
-		else if (odds < 0.666 && odds > 0.333 && recentlyLoaded)
+		else if (odds > 0.6 && recentlyLoaded)
 		{
 			return 1;
 		}

@@ -7,6 +7,7 @@ public class CharacterB implements Dueler
 	private static final String[] TAUNTS = {"This is gonna be easy", "What a no namer"};
 	private int startingHP;
 	private int hp;
+	private boolean recentlyLoaded = false;
 	
 	public void taunt() 
 	{
@@ -39,7 +40,7 @@ public class CharacterB implements Dueler
 	{
 		double odds = Math.random();
 		boolean fairInstance = caller instanceof Duel;
-		boolean recentlyLoaded = false;
+
 		if (!fairInstance)
 		{
 			return 3;
@@ -51,6 +52,7 @@ public class CharacterB implements Dueler
 		}
 		else if (odds > 0.6 && recentlyLoaded)
 		{
+			recentlyLoaded = !recentlyLoaded;
 			return 1;
 		}
 		else

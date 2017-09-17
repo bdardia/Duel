@@ -3,7 +3,7 @@ package duel;
 import java.util.Random;
 
 public class CharacterA implements Dueler{
-	private static final String[] TAUNTS = {"Im amazing", " get rekted", "Im the alpha bot", "gg"};
+	private static final String[] TAUNTS = {"Im amazing", "get rekted", "Im the alpha bot", "gg", "like my Hcks?", "Ive got Awsome Sause"};
 	private final int defending = 0;
 	private int hp = -1;
 	private boolean loaded = false;

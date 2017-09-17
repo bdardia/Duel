@@ -14,6 +14,8 @@ public class CharacterA implements Dueler{
 	private String name = "Player_3";
 	
 	private Dueler opponent;
+	private int opponentLastMove;
+	private boolean opponentIsLoaded;
 	
 	private int previousTauntIndex = -1;
 	
@@ -58,27 +60,43 @@ public class CharacterA implements Dueler{
 	}
 	
 	public int getAction(Object caller) {
-		
 		if(caller instanceof Duel) {
+			Duel gameMaster = (Duel) caller;
+			this.updateOpponentState(gameMaster);
+			
 			int descision = this.rand.nextInt(2);
+			boolean shouldLoad = (!this.opponentIsLoaded && !this.loaded);
+			if(shouldLoad) { //loads at beginning of the game and whenever there is a safe opportunity to load
+				System.out.println("safe load");
+				this.loaded = true;
+				return Duel.LOADING;
+			}
 			if(descision == this.defending || this.hp > this.opponent.getHP()) {
 				return 2;
 			}
 			else { //attack if not defending
 				if (this.loaded) {
 					this.loaded = false;
-					return 1;
+					return Duel.SHOOTING;
 				}
 				else {
 					this.loaded = true;
-					return 0;
+					return Duel.LOADING;
 				}
 			}
 		}
 		return 3;
 	}
 		
-		
+	public void updateOpponentState(Duel gameMaster) {
+		this.opponentLastMove = gameMaster.getLastActionOf(this.opponent);
+		if(this.opponentLastMove == Duel.LOADING) {
+			this.opponentIsLoaded = true;
+		}
+		if(this.opponentLastMove == Duel.SHOOTING) {
+			this.opponentIsLoaded = false;
+		}
+	}
 	public void hit(Object caller) {
 		this.hp-= 10;
 		

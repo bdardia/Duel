@@ -47,7 +47,7 @@ public class CharacterA implements Dueler{
 		int tauntIndex = this.rand.nextInt(TAUNTS.length);
 		if(tauntIndex == this.previousTauntIndex) {
 			if(tauntIndex == 0) {
-				tauntIndex = TAUNTS.length;
+				tauntIndex = TAUNTS.length-1;
 			}
 			else {
 				tauntIndex-=1;
@@ -63,6 +63,10 @@ public class CharacterA implements Dueler{
 		if(caller instanceof Duel) {
 			Duel gameMaster = (Duel) caller;
 			this.updateOpponentState(gameMaster);
+			boolean shouldTaunt = gameMaster.getLastActionOf(this) == Duel.GUARDING && this.opponentLastMove == Duel.SHOOTING;
+			if(shouldTaunt) {
+				this.taunt();
+			}
 			
 			int descision = this.rand.nextInt(2);
 			boolean shouldLoad = (!this.opponentIsLoaded && !this.loaded);

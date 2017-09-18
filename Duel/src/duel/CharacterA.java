@@ -67,11 +67,17 @@ public class CharacterA implements Dueler{
 			if(shouldTaunt) {
 				this.taunt();
 			}
+			int descision;
+			if(!this.opponentIsLoaded) {
+				descision = this.rand.nextInt(4); //higher chance to attack, but not dangerous chance ie, opponent gaurds first
+			}
+			else {
+				descision = this.rand.nextInt(2);
+			}
 			
-			int descision = this.rand.nextInt(2);
-			boolean shouldLoad = (!this.opponentIsLoaded && !this.loaded);
-			if(shouldLoad) { //loads at beginning of the game and whenever there is a safe opportunity to load
-				System.out.println("safe load");
+			boolean safeLoad = (!this.opponentIsLoaded && !this.loaded);
+			if(safeLoad) { //loads at beginning of the game and whenever there is a safe opportunity to load
+				//System.out.println("safe load");
 				this.loaded = true;
 				return Duel.LOADING;
 			}

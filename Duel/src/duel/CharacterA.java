@@ -69,7 +69,7 @@ public class CharacterA implements Dueler{
 			}
 			int descision;
 			if(!this.opponentIsLoaded) {
-				descision = this.rand.nextInt(4); //higher chance to attack, but not dangerous chance ie, opponent gaurds first
+				descision = this.rand.nextInt(3); //higher chance to attack, but not dangerous chance ie, opponent gaurds first
 			}
 			else {
 				descision = this.rand.nextInt(2);
@@ -81,7 +81,7 @@ public class CharacterA implements Dueler{
 				this.loaded = true;
 				return Duel.LOADING;
 			}
-			if(descision == this.defending || this.hp > this.opponent.getHP()) {
+			if(descision == this.defending || this.hp > this.opponent.getHP() && this.opponentIsLoaded) {
 				return 2;
 			}
 			else { //attack if not defending

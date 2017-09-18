@@ -76,7 +76,7 @@ public class CharacterA implements Dueler{
 			}
 			
 			boolean safeLoad = (!this.opponentIsLoaded && !this.loaded);
-			if(safeLoad) { //loads at beginning of the game and whenever there is a safe opportunity to load
+			if(safeLoad) { //loads at beginning of the game and whenever there is a safe opportunity to load maybe add some randomness if the other bot adapts
 				//System.out.println("safe load");
 				this.loaded = true;
 				return Duel.LOADING;

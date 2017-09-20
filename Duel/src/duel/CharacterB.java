@@ -8,6 +8,7 @@ public class CharacterB implements Dueler
 	private int startingHP;
 	private int hp;
 	private boolean recentlyLoaded = false;
+	private boolean firstRound = true;
 	
 	public void taunt() 
 	{
@@ -40,7 +41,11 @@ public class CharacterB implements Dueler
 	{
 		double odds = Math.random();
 		boolean fairInstance = caller instanceof Duel;
-
+		if (firstRound)
+		{
+			firstRound = false;
+			return 0;
+		}
 		if (!fairInstance)
 		{
 			return 3;

@@ -9,7 +9,8 @@ public class CharacterB implements Dueler
 	private int hp;
 	private boolean recentlyLoaded = false;
 	private boolean firstRound = true;
-	private boolean justShot = false;
+	private Dueler characterA;
+	private boolean opponentIsLoaded = false;
 	
 	public void taunt() 
 	{
@@ -32,6 +33,7 @@ public class CharacterB implements Dueler
 	}
 	public boolean determineIfOpponentIsFair(Dueler d, int target)
 	{
+		characterA = d;
 		if (d.getHP() == target)
 		{
 			return true;
@@ -40,7 +42,9 @@ public class CharacterB implements Dueler
 	}
 	public int getAction(Object caller)
 	{
+		opponentLoaded((Duel)caller);
 		double odds = Math.random();
+		double safeFactor = 0.2;
 		boolean fairInstance = caller instanceof Duel;
 		if (firstRound)
 		{
@@ -51,12 +55,16 @@ public class CharacterB implements Dueler
 		{
 			return 3;
 		}
-		if ((odds < 0.3 && !recentlyLoaded) || (justShot && !recentlyLoaded))
+		if (this.getHP() < characterA.getHP())
 		{
-			if (justShot)
-			{
-				justShot = false;
-			}
+			safeFactor = 0.3;
+		}
+		if (this.getHP() > characterA.getHP())
+		{
+			safeFactor = 0.1;
+		}
+		if ((!opponentIsLoaded && !recentlyLoaded) || ((odds < safeFactor) && !recentlyLoaded))
+		{
 			recentlyLoaded = !recentlyLoaded;
 			return 0;
 		}
@@ -78,7 +86,17 @@ public class CharacterB implements Dueler
 			return;
 		}
 		this.hp -= 10;
-		this.justShot = true;
+	}
+	public void opponentLoaded(Duel mainDuel)
+	{
+		if (mainDuel.getLastActionOf(characterA) == 0)
+		{
+			this.opponentIsLoaded = true;
+		}
+		else if (mainDuel.getLastActionOf(characterA) == 1)
+		{
+			this.opponentIsLoaded = false;
+		}
 	}
 	public CharacterB()
 	{

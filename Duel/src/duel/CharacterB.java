@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class CharacterB implements Dueler 
 {
-	private static final String[] TAUNTS = {"This is gonna be easy", "What a no namer"};
+	private static final String[] TAUNTS = {"This is gonna be easy", "What a no namer", "That's a 1", "You play like a bot"};
 	private int startingHP;
 	private int hp;
 	private boolean recentlyLoaded = false;

@@ -11,6 +11,7 @@ public class CharacterB implements Dueler
 	private boolean firstRound = true;
 	private Dueler characterA;
 	private boolean opponentIsLoaded = false;
+	private double safeFactor = 0.2;
 	
 	public void taunt() 
 	{
@@ -44,7 +45,6 @@ public class CharacterB implements Dueler
 	{
 		opponentLoaded((Duel)caller);
 		double odds = Math.random();
-		double safeFactor = 0.2;
 		boolean fairInstance = caller instanceof Duel;
 		if (firstRound)
 		{

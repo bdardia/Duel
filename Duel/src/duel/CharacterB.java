@@ -9,6 +9,7 @@ public class CharacterB implements Dueler
 	private int hp;
 	private boolean recentlyLoaded = false;
 	private boolean firstRound = true;
+	private boolean justShot = false;
 	
 	public void taunt() 
 	{
@@ -50,8 +51,12 @@ public class CharacterB implements Dueler
 		{
 			return 3;
 		}
-		if (odds < 0.3 && !recentlyLoaded)
+		if ((odds < 0.3 && !recentlyLoaded) || (justShot && !recentlyLoaded))
 		{
+			if (justShot)
+			{
+				justShot = false;
+			}
 			recentlyLoaded = !recentlyLoaded;
 			return 0;
 		}
@@ -73,6 +78,7 @@ public class CharacterB implements Dueler
 			return;
 		}
 		this.hp -= 10;
+		this.justShot = true;
 	}
 	public CharacterB()
 	{

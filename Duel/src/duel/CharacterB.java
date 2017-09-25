@@ -72,7 +72,7 @@ public class CharacterB implements Dueler
 			recentlyLoaded = !recentlyLoaded;
 			return 0;
 		}
-		else if (odds > 0.6 && recentlyLoaded)
+		else if (odds > (safeFactor + 0.4) && recentlyLoaded)
 		{
 			recentlyLoaded = !recentlyLoaded;
 			return 1;

@@ -57,11 +57,11 @@ public class CharacterB implements Dueler
 		}
 		if (this.getHP() < characterA.getHP())
 		{
-			safeFactor = 0.3;
+			safeFactor = 0.2 + ((characterA.getHP() - this.getHP()) / 100);
 		}
 		if (this.getHP() > characterA.getHP())
 		{
-			safeFactor = 0.1;
+			safeFactor = (this.getHP() - characterA.getHP()) / 100;
 		}
 		if (this.getHP() == characterA.getHP())
 		{

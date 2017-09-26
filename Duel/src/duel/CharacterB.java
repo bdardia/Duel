@@ -53,6 +53,7 @@ public class CharacterB implements Dueler
 		if (firstRound)
 		{
 			firstRound = false;
+			recentlyLoaded = true;
 			return 0;
 		}
 		if (this.getHP() < characterA.getHP())

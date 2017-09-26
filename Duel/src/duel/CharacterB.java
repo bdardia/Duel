@@ -46,14 +46,14 @@ public class CharacterB implements Dueler
 		opponentLoaded((Duel)caller);
 		double odds = Math.random();
 		boolean fairInstance = caller instanceof Duel;
+		if (!fairInstance)
+		{
+			return 3;
+		}
 		if (firstRound)
 		{
 			firstRound = false;
 			return 0;
-		}
-		if (!fairInstance)
-		{
-			return 3;
 		}
 		if (this.getHP() < characterA.getHP())
 		{

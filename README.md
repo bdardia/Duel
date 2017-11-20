@@ -1,6 +1,7 @@
 # Duel
 Two pretty good bots fighting each other in a duel to the death
 ---
+
 Player_3 will always win once it takes the lead. When it has more health than its opponent (and they're loaded) it will block every turn.
 ```javascript
 int descision;

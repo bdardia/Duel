@@ -73,4 +73,5 @@ else
 ```
 
 Both will always shoot on the first round.
+
 ---

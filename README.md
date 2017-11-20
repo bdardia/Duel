@@ -1,6 +1,6 @@
 # Duel
 
-Two pretty good bots fighting each other in a duel to the death
+Two pretty good bots fighting each other in a duel to the death.
 
 ---
 

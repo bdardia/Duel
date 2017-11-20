@@ -39,37 +39,37 @@ private double safeFactor = 0.2;
 ```
 ```
 if (firstRound)
-		{
-			firstRound = false;
-			recentlyLoaded = true;
-			return 0;
-		}
-		if (this.getHP() < characterA.getHP())
-		{
-			safeFactor = 0.2 + ((characterA.getHP() - this.getHP()) / 100);
-		}
-		if (this.getHP() > characterA.getHP())
-		{
-			safeFactor = (this.getHP() - characterA.getHP()) / 100;
-		}
-		if (this.getHP() == characterA.getHP())
-		{
-			safeFactor = 0.2;
-		}
-		if ((!opponentIsLoaded && !(recentlyLoaded)) || ((odds < safeFactor) && !(recentlyLoaded)))
-		{
-			recentlyLoaded = !recentlyLoaded;
-			return 0;
-		}
-		else if (odds < (safeFactor + 0.3) && recentlyLoaded)
-		{
-			recentlyLoaded = !recentlyLoaded;
-			return 1;
-		}
-		else
-		{
-			return 2;
-		}
+{
+	firstRound = false;
+	recentlyLoaded = true;
+	return 0;
+}
+if (this.getHP() < characterA.getHP())
+{
+	safeFactor = 0.2 + ((characterA.getHP() - this.getHP()) / 100);
+}
+if (this.getHP() > characterA.getHP())
+{
+	safeFactor = (this.getHP() - characterA.getHP()) / 100;
+}
+if (this.getHP() == characterA.getHP())
+{
+	safeFactor = 0.2;
+}
+if ((!opponentIsLoaded && !(recentlyLoaded)) || ((odds < safeFactor) && !(recentlyLoaded)))
+{
+	recentlyLoaded = !recentlyLoaded;
+	return 0;
+}
+else if (odds < (safeFactor + 0.3) && recentlyLoaded)
+{
+	recentlyLoaded = !recentlyLoaded;
+	return 1;
+}
+else
+{
+	return 2;
+}
 ```
 
 Both will always shoot on the first round.
